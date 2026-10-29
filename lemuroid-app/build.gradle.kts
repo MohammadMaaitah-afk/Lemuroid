@@ -12,7 +12,8 @@ android {
     defaultConfig {
         versionCode = 252
         versionName = "1.17.0" // Always remember to update Cores Tag!
-        applicationId = "com.swordfish.lemuroid"
+        applicationId = "com.mohammad.legends"
+        resourceConfigurations += listOf("en", "ar")
     }
     flavorDimensions += listOf("opensource", "cores")
 
@@ -94,9 +95,9 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
-            signingConfig = signingConfigs["release"]
+            signingConfig = signingConfigs["debug"]
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            resValue("string", "lemuroid_name", "Lemuroid")
+            resValue("string", "lemuroid_name", "ملعب الأساطير")
         }
         getByName("debug") {
             applicationIdSuffix = ".debug"

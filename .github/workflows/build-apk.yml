@@ -1,0 +1,38 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleFreeDynamicRelease
+
+      - name: Rename APK
+        run: cp lemuroid-app/build/outputs/apk/freeDynamic/release/*.apk LegendsArena.apk
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build${{ github.run_number }}
+          name: "Build ${{ github.run_number }}"
+          files: LegendsArena.apk
