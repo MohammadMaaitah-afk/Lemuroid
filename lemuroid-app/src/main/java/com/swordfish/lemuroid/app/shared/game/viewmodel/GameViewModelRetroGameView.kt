@@ -94,6 +94,7 @@ class GameViewModelRetroGameView(
         val hdMode = settingsManager.hdMode()
         val hdModeQuality = settingsManager.hdModeQuality()
         val alignment = settingsManager.viewportAlignment()
+        val aspectRatio = settingsManager.aspectRatio()
         val lowLatencyAudio = settingsManager.lowLatencyAudio()
         val enableRumble = settingsManager.enableRumble()
         val directLoad = settingsManager.allowDirectGameLoad()
@@ -141,6 +142,7 @@ class GameViewModelRetroGameView(
                                 hdModeQuality,
                                 filter,
                                 alignment,
+                                aspectRatio,
                                 lowLatencyAudio,
                                 enableRumble,
                                 enableMicrophone,
@@ -212,6 +214,7 @@ class GameViewModelRetroGameView(
         hdModeQuality: HDModeQuality,
         screenFilter: String,
         alignment: String,
+        aspectRatio: String,
         lowLatencyAudio: Boolean,
         requestRumble: Boolean,
         requestMicrophone: Boolean,
@@ -247,6 +250,13 @@ class GameViewModelRetroGameView(
                     "top" -> ViewportAlignment.TOP
                     "bottom" -> ViewportAlignment.BOTTOM
                     else -> ViewportAlignment.CENTER
+                }
+            aspectRatioOverride =
+                when (aspectRatio) {
+                    "4:3" -> 4f / 3f
+                    "16:9" -> 16f / 9f
+                    "stretch" -> -1f
+                    else -> 0f
                 }
             preferLowLatencyAudio = lowLatencyAudio
             rumbleEventsEnabled = requestRumble

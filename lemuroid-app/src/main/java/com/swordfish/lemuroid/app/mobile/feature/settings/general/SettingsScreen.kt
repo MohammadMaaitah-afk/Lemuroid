@@ -189,6 +189,16 @@ private fun GeneralSettings() {
             title = { Text(text = stringResource(id = R.string.settings_title_viewport_alignment)) },
             items = stringListResource(R.array.pref_key_viewport_alignment_display_names),
         )
+        LemuroidSettingsList(
+            state =
+                indexPreferenceState(
+                    R.string.pref_key_aspect_ratio,
+                    "original",
+                    stringListResource(R.array.pref_key_aspect_ratio_values).toList(),
+                ),
+            title = { Text(text = stringResource(id = R.string.settings_title_aspect_ratio)) },
+            items = stringListResource(R.array.pref_key_aspect_ratio_display_names),
+        )
     }
 }
 

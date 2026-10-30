@@ -182,4 +182,9 @@
     <string name="tilt_configuration_buttons_l_r">لام - ر</string>
     <string name="tilt_configuration_buttons_l1_r1">L1 - R1</string>
     <string name="tilt_configuration_buttons_l2_r2">L2 - R2</string>
+    <string name="settings_title_aspect_ratio">أبعاد الشاشة</string>
+    <string name="aspect_ratio_names_original">الأصلي</string>
+    <string name="aspect_ratio_names_4_3">4:3</string>
+    <string name="aspect_ratio_names_16_9">16:9</string>
+    <string name="aspect_ratio_names_stretch">ملء الشاشة</string>
 </resources>

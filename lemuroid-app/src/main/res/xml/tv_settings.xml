@@ -50,6 +50,15 @@
             app:dependency="@string/pref_key_hd_mode"
             android:defaultValue="auto"/>
 
+        <ListPreference
+            android:key="@string/pref_key_aspect_ratio"
+            android:title="@string/settings_title_aspect_ratio"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true"
+            android:entries="@array/pref_key_aspect_ratio_display_names"
+            app:entryValues="@array/pref_key_aspect_ratio_values"
+            android:defaultValue="original"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
