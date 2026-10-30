@@ -216,4 +216,7 @@
     <string name="import_done">خلصنا. انتسخت %1$d لعبة، وبتقدر تشيل الفلاشة هلأ.</string>
     <string name="import_no_space">ما في مساحة كافية. انتسخت %1$d لعبة.</string>
     <string name="import_close">إغلاق</string>
+    <string name="mugen_title">MUGEN</string>
+    <string name="mugen_summary">افتح محرك القتال Ikemen GO</string>
+    <string name="mugen_not_installed">Ikemen GO مش مثبت لهلأ. هو المحرك المجاني ومفتوح المصدر اللي بيشغل شخصيات وساحات MUGEN.\n\nبيحتاج أندرويد 13 أو أحدث.\n\n1. نزّل ملف أندرويد (zip) من:\n%1$s\n2. فك الضغط بتطبيق ملفات وثبّت ikemen-go.apk.\n3. حط الشخصيات بمجلد chars والساحات بمجلد stages.\n4. ارجع لهون واكبس MUGEN مرة ثانية.</string>
 </resources>

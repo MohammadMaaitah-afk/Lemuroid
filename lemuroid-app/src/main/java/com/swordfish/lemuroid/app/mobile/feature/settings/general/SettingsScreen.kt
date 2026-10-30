@@ -132,6 +132,18 @@ private fun InputSettings(navController: NavController) {
             onClick = { navController.navigateToRoute(MainRoute.SETTINGS_INPUT_DEVICES) },
         )
         LemuroidSettingsMenuLink(
+            title = { Text(text = stringResource(id = R.string.mugen_title)) },
+            subtitle = { Text(text = stringResource(id = R.string.mugen_summary)) },
+            onClick = {
+                context.startActivity(
+                    android.content.Intent(
+                        context,
+                        com.swordfish.lemuroid.app.shared.mugen.MugenActivity::class.java,
+                    ),
+                )
+            },
+        )
+        LemuroidSettingsMenuLink(
             title = { Text(text = stringResource(id = R.string.settings_title_language)) },
             subtitle = { Text(text = stringResource(id = R.string.settings_description_language)) },
             onClick = {

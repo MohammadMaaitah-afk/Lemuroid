@@ -218,4 +218,7 @@
     <string name="import_done">Listo. Se copiaron %1$d juegos, ya puedes quitar el USB.</string>
     <string name="import_no_space">No hay espacio suficiente. Se copiaron %1$d juegos.</string>
     <string name="import_close">Cerrar</string>
+    <string name="mugen_title">MUGEN</string>
+    <string name="mugen_summary">Abrir el motor de lucha Ikemen GO</string>
+    <string name="mugen_not_installed">Ikemen GO todavía no está instalado. Es el motor gratuito y de código abierto que ejecuta personajes y escenarios de MUGEN.\n\nNecesita Android 13 o superior.\n\n1. Descarga el zip de Android desde:\n%1$s\n2. Descomprímelo con un gestor de archivos e instala ikemen-go.apk.\n3. Pon tus personajes en la carpeta chars y los escenarios en stages.\n4. Vuelve aquí y pulsa MUGEN otra vez.</string>
 </resources>

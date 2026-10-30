@@ -83,6 +83,13 @@ class TVHomeFragment : BrowseSupportFragment() {
                                 SaveSyncWork.enqueueManualWork(
                                     requireContext().applicationContext,
                                 )
+                            TVSettingType.MUGEN ->
+                                startActivity(
+                                    Intent(
+                                        requireContext(),
+                                        com.swordfish.lemuroid.app.shared.mugen.MugenActivity::class.java,
+                                    ),
+                                )
                         }
                     }
                 }
@@ -228,6 +235,7 @@ class TVHomeFragment : BrowseSupportFragment() {
             }
 
             add(TVSetting(TVSettingType.CHOOSE_DIRECTORY, !indexInProgress))
+            add(TVSetting(TVSettingType.MUGEN, true))
             add(TVSetting(TVSettingType.SETTINGS, !indexInProgress))
         }
     }

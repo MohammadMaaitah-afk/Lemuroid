@@ -280,4 +280,7 @@
     <string name="import_done">Done. %1$d games copied, you can remove the USB now.</string>
     <string name="import_no_space">Not enough space. %1$d games were copied.</string>
     <string name="import_close">Close</string>
+    <string name="mugen_title">MUGEN</string>
+    <string name="mugen_summary">Open the Ikemen GO fighting engine</string>
+    <string name="mugen_not_installed">Ikemen GO is not installed yet. It is the free, open source engine that plays MUGEN characters and stages.\n\nIt needs Android 13 or newer.\n\n1. Download the Android zip from:\n%1$s\n2. Unzip it with a file manager and install ikemen-go.apk.\n3. Put your characters in the chars folder and stages in the stages folder.\n4. Come back here and press MUGEN again.</string>
 </resources>
