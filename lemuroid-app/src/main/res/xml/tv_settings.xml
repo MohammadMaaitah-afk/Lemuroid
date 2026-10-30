@@ -7,6 +7,15 @@
         android:title="@string/settings_category_general"
         app:iconSpaceReserved="false">
 
+        <Preference
+            android:title="@string/settings_title_language"
+            android:summary="@string/settings_description_language"
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.mohammad.legends"
+                android:targetClass="com.swordfish.lemuroid.app.shared.settings.LanguagePickerActivity" />
+        </Preference>
+
         <SwitchPreference
             android:key="@string/pref_key_autosave"
             android:title="@string/settings_title_enable_autosave"

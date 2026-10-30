@@ -230,6 +230,8 @@
     <string name="shader_filter_names_crt">CRT</string>
     <string name="shader_filter_names_lcd">LCD</string>
 
+    <string name="settings_title_language">Language</string>
+    <string name="settings_description_language">English, Arabic or Spanish</string>
     <string name="controller_guide_title">How to pair your controller</string>
     <string name="controller_guide_summary">Step by step pairing for Xbox, PlayStation and other controllers</string>
     <string name="controller_guide_intro">Put your controller in pairing mode using the steps below, then open Bluetooth settings and select it from the list. USB controllers work as soon as you plug them in.</string>

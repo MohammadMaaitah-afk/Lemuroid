@@ -1,6 +1,7 @@
 package com.swordfish.lemuroid.app.shared.controllers
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
@@ -15,11 +16,16 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import com.swordfish.lemuroid.R
+import com.swordfish.lemuroid.lib.android.LocaleHelper
 
 /** Simple screen that explains how to pair the most common controllers. Works with touch and D-pad. */
 class ControllerGuideActivity : Activity() {
     private fun dp(value: Int): Int =
         TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value.toFloat(), resources.displayMetrics).toInt()
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleHelper.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

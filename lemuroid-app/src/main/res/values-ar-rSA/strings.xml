@@ -182,6 +182,8 @@
     <string name="tilt_configuration_buttons_l_r">لام - ر</string>
     <string name="tilt_configuration_buttons_l1_r1">L1 - R1</string>
     <string name="tilt_configuration_buttons_l2_r2">L2 - R2</string>
+    <string name="settings_title_language">اللغة</string>
+    <string name="settings_description_language">الإنجليزية أو العربية أو الإسبانية</string>
     <string name="controller_guide_title">طريقة توصيل يد التحكم</string>
     <string name="controller_guide_summary">خطوات الاقتران لأيادي Xbox و PlayStation وغيرها</string>
     <string name="controller_guide_intro">حط اليد على وضع الاقتران حسب الخطوات تحت، وبعدين افتح إعدادات البلوتوث واختارها من القائمة. يد الـ USB بتشتغل أول ما توصلها.</string>

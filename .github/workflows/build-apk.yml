@@ -36,10 +36,10 @@ jobs:
       - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew assembleFreeDynamicRelease
+          ./gradlew assembleFreeBundleRelease
 
       - name: Rename APK
-        run: cp lemuroid-app/build/outputs/apk/freeDynamic/release/*.apk LegendsArena.apk
+        run: cp lemuroid-app/build/outputs/apk/freeBundle/release/*.apk LegendsArena.apk
 
       - name: Publish release
         uses: softprops/action-gh-release@v2

@@ -19,6 +19,7 @@
 
 package com.swordfish.lemuroid.lib.android
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -35,6 +36,10 @@ abstract class RetrogradeActivity : FragmentActivity(), HasFragmentInjector, Has
 
     @Inject
     lateinit var frameworkFragmentInjector: DispatchingAndroidInjector<android.app.Fragment>
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleHelper.wrap(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)

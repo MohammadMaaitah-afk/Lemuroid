@@ -36,6 +36,7 @@ class LemuroidApplication : DaggerApplication(), HasWorkerInjector, ImageLoaderF
         AppInitializer.getInstance(this).initializeComponent(initializeComponent)
 
         DynamicColors.applyToActivitiesIfAvailable(this)
+        com.swordfish.lemuroid.lib.android.LocaleHelper.applyToResources(this)
     }
 
     override fun attachBaseContext(base: Context) {
