@@ -24,13 +24,13 @@ jobs:
 
       - name: Prepare engine on JitPack
         run: |
+          set +e
+          POM=https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/LibretroDroid-4e0b88bcc3.pom
           for i in $(seq 1 40); do
-            code=$(curl -s -o /dev/null -w "%{http_code}" https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/build.log)
-            curl -s -o /dev/null https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/LibretroDroid-4e0b88bcc3.pom || true
-            if curl -sf -o /dev/null https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/LibretroDroid-4e0b88bcc3.pom; then echo ready; exit 0; fi
-            echo "waiting ($code)"; sleep 30
+            curl -sf -m 120 -o /dev/null "$POM" && { echo ready; exit 0; }
+            echo "waiting for JitPack ($i)"; sleep 30
           done
-          curl -s https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/build.log | tail -80
+          curl -s -m 60 https://jitpack.io/com/github/MohammadMaaitah-afk/LibretroDroid/4e0b88bcc3/build.log | tail -100
           exit 1
 
       - name: Build
