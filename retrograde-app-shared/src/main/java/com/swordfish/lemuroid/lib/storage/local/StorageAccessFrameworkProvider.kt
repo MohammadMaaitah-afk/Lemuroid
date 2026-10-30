@@ -19,6 +19,7 @@ import com.swordfish.lemuroid.lib.storage.StorageProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import timber.log.Timber
 import java.io.File
 import java.io.InputStream
@@ -36,8 +37,11 @@ class StorageAccessFrameworkProvider(private val context: Context) : StorageProv
     override val enabledByDefault = true
 
     override fun listBaseStorageFiles(): Flow<List<BaseStorageFile>> {
+        // Skip games that were already copied to the device storage, so they do not show twice.
+        val internalNames =
+            File(context.getExternalFilesDir(null), "roms").listFiles()?.map { it.name }?.toSet() ?: emptySet()
         return getExternalFolder()?.let { folder ->
-            traverseDirectoryEntries(Uri.parse(folder))
+            traverseDirectoryEntries(Uri.parse(folder)).map { files -> files.filter { it.name !in internalNames } }
         } ?: emptyFlow()
     }
 

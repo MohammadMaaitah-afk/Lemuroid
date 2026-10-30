@@ -8,6 +8,15 @@
         app:iconSpaceReserved="false">
 
         <Preference
+            android:title="@string/import_title"
+            android:summary="@string/import_summary"
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.mohammad.legends"
+                android:targetClass="com.swordfish.lemuroid.app.shared.library.ImportGamesActivity" />
+        </Preference>
+
+        <Preference
             android:title="@string/settings_title_language"
             android:summary="@string/settings_description_language"
             app:iconSpaceReserved="false">

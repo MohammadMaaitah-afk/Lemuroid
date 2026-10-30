@@ -253,6 +253,18 @@ private fun RomsSettings(
             onClick = { onChangeFolder() },
             enabled = !indexingInProgress,
         )
+        LemuroidSettingsMenuLink(
+            title = { Text(text = stringResource(id = R.string.import_title)) },
+            subtitle = { Text(text = stringResource(id = R.string.import_summary)) },
+            onClick = {
+                context.startActivity(
+                    android.content.Intent(
+                        context,
+                        com.swordfish.lemuroid.app.shared.library.ImportGamesActivity::class.java,
+                    ),
+                )
+            },
+        )
         if (scanInProgress) {
             LemuroidSettingsMenuLink(
                 title = { Text(text = stringResource(id = R.string.stop)) },

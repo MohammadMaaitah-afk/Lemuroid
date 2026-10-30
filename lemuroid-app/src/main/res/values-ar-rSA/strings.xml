@@ -207,4 +207,13 @@
     <string name="aspect_ratio_names_4_3">4:3</string>
     <string name="aspect_ratio_names_16_9">16:9</string>
     <string name="aspect_ratio_names_stretch">ملء الشاشة</string>
+    <string name="import_title">نسخ الألعاب من الفلاشة</string>
+    <string name="import_summary">انسخ الألعاب الجديدة على الجهاز لتضل موجودة بعد ما تشيل الفلاشة</string>
+    <string name="import_searching">عم ندور على ألعاب جديدة…</string>
+    <string name="import_no_folder">اختار مجلد الألعاب على الفلاشة أول، وبعدين جرب مرة ثانية.</string>
+    <string name="import_nothing">كل الألعاب موجودة أصلا على الجهاز.</string>
+    <string name="import_copying">عم ننسخ %1$d من %2$d\n%3$s</string>
+    <string name="import_done">خلصنا. انتسخت %1$d لعبة، وبتقدر تشيل الفلاشة هلأ.</string>
+    <string name="import_no_space">ما في مساحة كافية. انتسخت %1$d لعبة.</string>
+    <string name="import_close">إغلاق</string>
 </resources>

@@ -271,4 +271,13 @@
     <string name="tilt_configuration_buttons_l1_r1">L1 - R1</string>
     <string name="tilt_configuration_buttons_l2_r2">L2 - R2</string>
 
+    <string name="import_title">Copy games from USB</string>
+    <string name="import_summary">Copy new games to this device so they stay after you remove the USB</string>
+    <string name="import_searching">Looking for new games…</string>
+    <string name="import_no_folder">Choose your USB games folder first, then try again.</string>
+    <string name="import_nothing">All games are already on this device.</string>
+    <string name="import_copying">Copying %1$d of %2$d\n%3$s</string>
+    <string name="import_done">Done. %1$d games copied, you can remove the USB now.</string>
+    <string name="import_no_space">Not enough space. %1$d games were copied.</string>
+    <string name="import_close">Close</string>
 </resources>

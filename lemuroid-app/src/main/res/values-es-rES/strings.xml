@@ -209,4 +209,13 @@
     <string name="controller_guide_other_steps">1. Si tu mando tiene varios modos, cámbialo a modo Android (mira su manual).\n2. Activa el modo de emparejamiento, normalmente manteniendo pulsado el botón de emparejar o Home.</string>
     <string name="controller_guide_after_name">Después de emparejar</string>
     <string name="controller_guide_after_steps">En un televisor: Ajustes, luego Mandos y accesorios, luego Añadir accesorio, y elige el mando.\nEn un móvil: Ajustes, luego Bluetooth, y elige el mando.\nPara cambiar lo que hace cada botón, abre los ajustes del mando en la app.</string>
+    <string name="import_title">Copiar juegos del USB</string>
+    <string name="import_summary">Copia los juegos nuevos a este dispositivo para que sigan aquí sin el USB</string>
+    <string name="import_searching">Buscando juegos nuevos…</string>
+    <string name="import_no_folder">Primero elige la carpeta de juegos del USB y vuelve a intentarlo.</string>
+    <string name="import_nothing">Todos los juegos ya están en este dispositivo.</string>
+    <string name="import_copying">Copiando %1$d de %2$d\n%3$s</string>
+    <string name="import_done">Listo. Se copiaron %1$d juegos, ya puedes quitar el USB.</string>
+    <string name="import_no_space">No hay espacio suficiente. Se copiaron %1$d juegos.</string>
+    <string name="import_close">Cerrar</string>
 </resources>

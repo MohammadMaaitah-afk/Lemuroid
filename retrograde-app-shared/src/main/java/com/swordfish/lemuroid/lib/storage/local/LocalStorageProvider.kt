@@ -35,6 +35,8 @@ import com.swordfish.lemuroid.lib.storage.RomFiles
 import com.swordfish.lemuroid.lib.storage.StorageFile
 import com.swordfish.lemuroid.lib.storage.StorageProvider
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import java.io.File
 import java.io.InputStream
@@ -55,7 +57,16 @@ class LocalStorageProvider(
     override val enabledByDefault = true
 
     override fun listBaseStorageFiles(): Flow<List<BaseStorageFile>> =
-        walkDirectory(getExternalFolder() ?: directoriesManager.getInternalRomsDirectory())
+        kotlinx.coroutines.flow.flow {
+            // Games copied to the device are always listed, the USB folder only adds games not copied yet.
+            val internal = directoriesManager.getInternalRomsDirectory()
+            val internalNames = internal.listFiles()?.map { it.name }?.toSet() ?: emptySet()
+            emitAll(walkDirectory(internal))
+            val external = getExternalFolder()
+            if (external != null && external.exists() && external.absolutePath != internal.absolutePath) {
+                emitAll(walkDirectory(external).map { files -> files.filter { it.name !in internalNames } })
+            }
+        }
 
     override fun getStorageFile(baseStorageFile: BaseStorageFile): StorageFile? {
         return DocumentFileParser.parseDocumentFile(context, baseStorageFile)

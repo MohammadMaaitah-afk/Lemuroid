@@ -84,6 +84,22 @@
             android:theme="@style/LemuroidMaterialTheme.Menu" />
 
         <activity
+            android:name="com.swordfish.lemuroid.app.shared.library.ImportGamesActivity"
+            android:exported="false"
+            android:theme="@style/LemuroidMaterialTheme" />
+
+        <receiver
+            android:name="com.swordfish.lemuroid.app.shared.library.UsbMountReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVED" />
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
+
+        <activity
             android:name="com.swordfish.lemuroid.app.shared.settings.LanguagePickerActivity"
             android:exported="false"
             android:theme="@style/LemuroidMaterialTheme" />

@@ -10,7 +10,7 @@ plugins {
 
 android {
     defaultConfig {
-        versionCode = 255
+        versionCode = 256
         versionName = "1.17.0" // Always remember to update Cores Tag!
         applicationId = "com.mohammad.legends"
         resourceConfigurations += listOf("en", "ar", "es")
@@ -97,7 +97,7 @@ android {
             isMinifyEnabled = true
             signingConfig = signingConfigs["debug"]
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            resValue("string", "lemuroid_name", "ملعب الأساطير")
+            resValue("string", "lemuroid_name", "16 Bit Legends")
         }
         getByName("debug") {
             applicationIdSuffix = ".debug"
