@@ -35,9 +35,11 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
                     ?: findBySerial(storageFile, db)
                     ?: findByFilename(db, storageFile)
                     ?: findByPathAndFilename(db, storageFile)
-                    ?: findByUniqueExtension(storageFile)
-                    ?: findByKnownSystem(storageFile)
-                    ?: findByPathAndSupportedExtension(storageFile)
+                    ?: (
+                        findByUniqueExtension(storageFile)
+                            ?: findByKnownSystem(storageFile)
+                            ?: findByPathAndSupportedExtension(storageFile)
+                    )?.let { withFuzzyCover(db, it, storageFile) }
             }.getOrElse {
                 Timber.e("Error in retrieving $storageFile metadata: $it... Skipping.")
                 null
@@ -46,6 +48,47 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
         metadata?.let { Timber.d("Metadata retrieved for item: $it") }
 
         return metadata
+    }
+
+    /**
+     * Games that are not an exact match (fan translations, hacks, renamed files) still get a cover:
+     * we look for the closest official title of the same system and use its box art.
+     */
+    private suspend fun withFuzzyCover(
+        db: LibretroDatabase,
+        metadata: GameMetadata,
+        file: StorageFile,
+    ): GameMetadata {
+        val systemId = metadata.system ?: return metadata
+        val words =
+            file.extensionlessName
+                .replace(Regex("\\[[^\\]]*\\]"), " ")
+                .replace(Regex("\\([^)]*\\)"), " ")
+                .replace(Regex("[_.]"), " ")
+                .replace(Regex("[^\\p{L}\\p{N} ]"), " ")
+                .split(" ")
+                .filter { it.isNotBlank() }
+        if (words.isEmpty()) return metadata
+
+        // Try with all words first, then drop words from the end to widen the search
+        for (count in words.size downTo minOf(2, words.size)) {
+            val pattern = words.take(count).joinToString("%", postfix = "%")
+            val candidates = runCatching { db.gameDao().findBySystemAndNameLike(systemId, pattern) }.getOrNull()
+            val best = candidates?.filter { it.name != null }?.let { pickBest(it) }
+            if (best != null) {
+                val system = GameSystem.findById(systemId)
+                return metadata.copy(thumbnail = computeCoverUrl(system, best.name))
+            }
+        }
+        return metadata
+    }
+
+    private fun pickBest(candidates: List<LibretroRom>): LibretroRom? {
+        val clean = candidates.filterNot { rom -> listOf("(Beta", "(Proto", "(Demo", "(Sample", "(Pirate").any { rom.name!!.contains(it) } }
+        val pool = clean.ifEmpty { candidates }
+        return listOf("(USA", "(Europe", "(World", "(Japan").firstNotNullOfOrNull { region ->
+            pool.filter { it.name!!.contains(region) }.minByOrNull { it.name!!.length }
+        } ?: pool.minByOrNull { it.name!!.length }
     }
 
     private fun convertToGameMetadata(rom: LibretroRom): GameMetadata {
@@ -90,7 +133,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
             GameMetadata(
                 name = file.extensionlessName,
                 romName = file.name,
-                thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(it.id.dbname, file.name),
+                thumbnail = null,
                 system = it.id.dbname,
                 developer = null,
             )
@@ -128,7 +171,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
         return GameMetadata(
             name = file.extensionlessName,
             romName = file.name,
-            thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(file.systemID!!.dbname, file.name),
+            thumbnail = null,
             system = file.systemID!!.dbname,
             developer = null,
         )
@@ -146,7 +189,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
                 GameMetadata(
                     name = file.extensionlessName,
                     romName = file.name,
-                    thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(it.id.dbname, file.name),
+                    thumbnail = null,
                     system = it.id.dbname,
                     developer = null,
                 )

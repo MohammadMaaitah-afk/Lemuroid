@@ -96,7 +96,19 @@ class LemuroidLibrary(
     ) = flow<Unit> {
         val entries = batch.map { fetchEntriesFromDatabase(it) }
 
-        val existingEntries = entries.filterIsInstance<ScanEntry.GameFile>()
+        val existingEntries =
+            entries.filterIsInstance<ScanEntry.GameFile>().map { entry ->
+                // Retry the cover lookup for games that still have no real cover
+                val game = entry.game
+                val guessed = CoverUrls.build(game.systemId, game.fileName)
+                if (game.coverFrontUrl == null || game.coverFrontUrl == guessed) {
+                    val refreshed = buildEntryFromMetadata(entry.file, provider, gameMetadata, startedAtMs)
+                    val cover = (refreshed as? ScanEntry.GameFile)?.game?.coverFrontUrl
+                    entry.copy(game = game.copy(coverFrontUrl = cover))
+                } else {
+                    entry
+                }
+            }
         handleExistingEntries(existingEntries, startedAtMs)
 
         val newEntries =
@@ -139,7 +151,7 @@ class LemuroidLibrary(
             entries
                 .map {
                     // Fill missing covers from the file name and switch old covers to https
-                    val cover = CoverUrls.upgrade(it.game.coverFrontUrl) ?: CoverUrls.build(it.game.systemId, it.game.fileName)
+                    val cover = CoverUrls.upgrade(it.game.coverFrontUrl)
                     it.game.copy(lastIndexedAt = startedAtMs, coverFrontUrl = cover)
                 }
 
