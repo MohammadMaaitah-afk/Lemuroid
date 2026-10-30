@@ -71,6 +71,15 @@
             app:iconSpaceReserved="false"
             android:title="@string/settings_title_gamepad_settings"/>
 
+        <Preference
+            android:title="@string/controller_guide_title"
+            android:summary="@string/controller_guide_summary"
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.mohammad.legends"
+                android:targetClass="com.swordfish.lemuroid.app.shared.controllers.ControllerGuideActivity" />
+        </Preference>
+
     </PreferenceCategory>
 
     <PreferenceCategory

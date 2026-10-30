@@ -230,6 +230,24 @@
     <string name="shader_filter_names_crt">CRT</string>
     <string name="shader_filter_names_lcd">LCD</string>
 
+    <string name="controller_guide_title">How to pair your controller</string>
+    <string name="controller_guide_summary">Step by step pairing for Xbox, PlayStation and other controllers</string>
+    <string name="controller_guide_intro">Put your controller in pairing mode using the steps below, then open Bluetooth settings and select it from the list. USB controllers work as soon as you plug them in.</string>
+    <string name="controller_guide_open_bluetooth">Open Bluetooth settings</string>
+    <string name="controller_guide_xbox_name">Xbox controller</string>
+    <string name="controller_guide_xbox_steps">1. Turn it on with the Xbox button.\n2. Hold the small pair button on the top for 3 seconds.\n3. The Xbox logo starts flashing fast, it is ready to pair.</string>
+    <string name="controller_guide_ps4_name">PlayStation 4 (DualShock 4)</string>
+    <string name="controller_guide_ps4_steps">1. Hold the PS and SHARE buttons together for 3 seconds.\n2. The light bar starts flashing fast, it is ready to pair.</string>
+    <string name="controller_guide_ps5_name">PlayStation 5 (DualSense)</string>
+    <string name="controller_guide_ps5_steps">1. Hold the PS and Create buttons together for 3 seconds.\n2. The light around the touch pad starts flashing, it is ready to pair.</string>
+    <string name="controller_guide_switch_name">Nintendo Switch Pro</string>
+    <string name="controller_guide_switch_steps">1. Hold the small sync button on the top, next to the USB port.\n2. The lights start moving, it is ready to pair.</string>
+    <string name="controller_guide_8bitdo_name">8BitDo</string>
+    <string name="controller_guide_8bitdo_steps">1. Press START and B together to turn it on in Android mode.\n2. Hold the pair button for 3 seconds until the lights flash fast.</string>
+    <string name="controller_guide_other_name">Other controllers</string>
+    <string name="controller_guide_other_steps">1. If your controller has several modes, switch it to Android mode (check its manual).\n2. Turn on pairing mode, usually by holding a pair or Home button.</string>
+    <string name="controller_guide_after_name">After pairing</string>
+    <string name="controller_guide_after_steps">On a TV: Settings, then Remotes and Accessories, then Add accessory, and choose the controller.\nOn a phone: Settings, then Bluetooth, and choose the controller.\nTo change what a button does, open Gamepad settings in the app.</string>
     <string name="settings_title_aspect_ratio">Screen size</string>
     <string name="aspect_ratio_names_original">Original</string>
     <string name="aspect_ratio_names_4_3">4:3</string>

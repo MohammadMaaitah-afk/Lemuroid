@@ -108,6 +108,7 @@ private fun MiscSettings(
 
 @Composable
 private fun InputSettings(navController: NavController) {
+    val context = LocalContext.current
     LemuroidCardSettingsGroup(
         title = { Text(text = stringResource(id = R.string.settings_category_input)) },
     ) {
@@ -129,6 +130,18 @@ private fun InputSettings(navController: NavController) {
                 Text(text = stringResource(id = R.string.settings_description_gamepad_settings))
             },
             onClick = { navController.navigateToRoute(MainRoute.SETTINGS_INPUT_DEVICES) },
+        )
+        LemuroidSettingsMenuLink(
+            title = { Text(text = stringResource(id = R.string.controller_guide_title)) },
+            subtitle = { Text(text = stringResource(id = R.string.controller_guide_summary)) },
+            onClick = {
+                context.startActivity(
+                    android.content.Intent(
+                        context,
+                        com.swordfish.lemuroid.app.shared.controllers.ControllerGuideActivity::class.java,
+                    ),
+                )
+            },
         )
     }
 }
