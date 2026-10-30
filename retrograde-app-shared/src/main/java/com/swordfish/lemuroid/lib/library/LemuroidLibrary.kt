@@ -137,7 +137,11 @@ class LemuroidLibrary(
     ) {
         val updatedGames =
             entries
-                .map { it.game.copy(lastIndexedAt = startedAtMs) }
+                .map {
+                    // Fill missing covers from the file name and switch old covers to https
+                    val cover = CoverUrls.upgrade(it.game.coverFrontUrl) ?: CoverUrls.build(it.game.systemId, it.game.fileName)
+                    it.game.copy(lastIndexedAt = startedAtMs, coverFrontUrl = cover)
+                }
 
         updatedGames
             .forEach { Timber.d("Updating game: $it") }

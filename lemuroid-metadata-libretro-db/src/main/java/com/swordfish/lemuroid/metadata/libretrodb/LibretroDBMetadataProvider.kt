@@ -90,7 +90,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
             GameMetadata(
                 name = file.extensionlessName,
                 romName = file.name,
-                thumbnail = null,
+                thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(it.id.dbname, file.name),
                 system = it.id.dbname,
                 developer = null,
             )
@@ -128,7 +128,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
         return GameMetadata(
             name = file.extensionlessName,
             romName = file.name,
-            thumbnail = null,
+            thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(file.systemID!!.dbname, file.name),
             system = file.systemID!!.dbname,
             developer = null,
         )
@@ -146,7 +146,7 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
                 GameMetadata(
                     name = file.extensionlessName,
                     romName = file.name,
-                    thumbnail = null,
+                    thumbnail = com.swordfish.lemuroid.lib.library.CoverUrls.build(it.id.dbname, file.name),
                     system = it.id.dbname,
                     developer = null,
                 )
@@ -178,6 +178,6 @@ class LibretroDBMetadataProvider(private val ovgdbManager: LibretroDBManager) :
 
         val thumbGameName = name.replace(THUMB_REPLACE, "_")
 
-        return "http://thumbnails.libretro.com/$systemName/$imageType/$thumbGameName.png"
+        return "https://thumbnails.libretro.com/$systemName/$imageType/$thumbGameName.png"
     }
 }
