@@ -88,6 +88,12 @@
             android:theme="@style/LemuroidMaterialTheme.Menu" />
 
         <activity
+            android:name="com.swordfish.lemuroid.app.shared.library.CloudSyncActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/LemuroidMaterialTheme" />
+
+        <activity
             android:name="com.swordfish.lemuroid.app.shared.mugen.MugenActivity"
             android:exported="false"
             android:theme="@style/LemuroidMaterialTheme" />

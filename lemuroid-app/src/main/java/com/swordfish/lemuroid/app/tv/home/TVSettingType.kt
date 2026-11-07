@@ -10,4 +10,5 @@ enum class TVSettingType(val icon: Int, val text: Int) {
     SETTINGS(R.drawable.ic_settings_white_64dp, R.string.settings),
     SAVE_SYNC(R.drawable.ic_cloud_sync_64dp, R.string.save_sync),
     MUGEN(R.drawable.ic_more_games, R.string.mugen_title),
+    CLOUD(R.drawable.ic_cloud_sync_64dp, R.string.cloud_short),
 }

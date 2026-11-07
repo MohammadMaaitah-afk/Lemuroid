@@ -83,6 +83,13 @@ class TVHomeFragment : BrowseSupportFragment() {
                                 SaveSyncWork.enqueueManualWork(
                                     requireContext().applicationContext,
                                 )
+                            TVSettingType.CLOUD ->
+                                startActivity(
+                                    Intent(
+                                        requireContext(),
+                                        com.swordfish.lemuroid.app.shared.library.CloudSyncActivity::class.java,
+                                    ),
+                                )
                             TVSettingType.MUGEN ->
                                 startActivity(
                                     Intent(
@@ -235,6 +242,7 @@ class TVHomeFragment : BrowseSupportFragment() {
             }
 
             add(TVSetting(TVSettingType.CHOOSE_DIRECTORY, !indexInProgress))
+            add(TVSetting(TVSettingType.CLOUD, !indexInProgress))
             add(TVSetting(TVSettingType.MUGEN, true))
             add(TVSetting(TVSettingType.SETTINGS, !indexInProgress))
         }

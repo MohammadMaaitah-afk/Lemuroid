@@ -8,6 +8,15 @@
         app:iconSpaceReserved="false">
 
         <Preference
+            android:title="@string/cloud_title"
+            android:summary="@string/cloud_summary"
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.mohammad.legends"
+                android:targetClass="com.swordfish.lemuroid.app.shared.library.CloudSyncActivity" />
+        </Preference>
+
+        <Preference
             android:title="@string/import_title"
             android:summary="@string/import_summary"
             app:iconSpaceReserved="false">

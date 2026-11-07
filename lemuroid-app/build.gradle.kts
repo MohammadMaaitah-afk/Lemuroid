@@ -10,7 +10,7 @@ plugins {
 
 android {
     defaultConfig {
-        versionCode = 259
+        versionCode = 260
         versionName = "1.17.0" // Always remember to update Cores Tag!
         applicationId = "com.mohammad.legends"
         resourceConfigurations += listOf("en", "ar", "es")

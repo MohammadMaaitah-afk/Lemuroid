@@ -266,6 +266,18 @@ private fun RomsSettings(
             enabled = !indexingInProgress,
         )
         LemuroidSettingsMenuLink(
+            title = { Text(text = stringResource(id = R.string.cloud_title)) },
+            subtitle = { Text(text = stringResource(id = R.string.cloud_summary)) },
+            onClick = {
+                context.startActivity(
+                    android.content.Intent(
+                        context,
+                        com.swordfish.lemuroid.app.shared.library.CloudSyncActivity::class.java,
+                    ),
+                )
+            },
+        )
+        LemuroidSettingsMenuLink(
             title = { Text(text = stringResource(id = R.string.import_title)) },
             subtitle = { Text(text = stringResource(id = R.string.import_summary)) },
             onClick = {
