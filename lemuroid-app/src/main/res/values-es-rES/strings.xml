@@ -224,11 +224,11 @@
     <string name="cloud_short">Juegos en la nube</string>
     <string name="cloud_title">Juegos desde Google Drive</string>
     <string name="cloud_summary">Descarga tus juegos desde una carpeta de Google Drive</string>
-    <string name="cloud_help">Pon tus juegos en una carpeta de Google Drive y compártela como "Cualquier persona con el enlace". Pega aquí el enlace una sola vez. Cada vez que abras esta pantalla, los juegos nuevos se descargan y se añaden a tu biblioteca.</string>
+    <string name="cloud_help">Pon tus juegos en una carpeta de Google Drive y compártela como \"Cualquier persona con el enlace\". Pega aquí el enlace una sola vez. Cada vez que abras esta pantalla, los juegos nuevos se descargan y se añaden a tu biblioteca.</string>
     <string name="cloud_link_hint">Enlace de la carpeta de Google Drive</string>
     <string name="cloud_sync_now">Guardar y sincronizar</string>
     <string name="cloud_bad_link">Esto no parece un enlace de carpeta de Google Drive.</string>
-    <string name="cloud_cannot_open">No se pudo abrir la carpeta. Revisa internet y que esté compartida como "Cualquier persona con el enlace".</string>
+    <string name="cloud_cannot_open">No se pudo abrir la carpeta. Revisa internet y que esté compartida como \"Cualquier persona con el enlace\".</string>
     <string name="cloud_up_to_date">Los %1$d juegos ya están en este dispositivo.</string>
     <string name="cloud_downloading">Descargando %1$d de %2$d\n%3$s</string>
     <string name="cloud_done">Listo. Se añadieron %1$d juegos nuevos.</string>

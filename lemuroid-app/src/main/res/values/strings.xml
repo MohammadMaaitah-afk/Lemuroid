@@ -286,11 +286,11 @@
     <string name="cloud_short">Cloud games</string>
     <string name="cloud_title">Games from Google Drive</string>
     <string name="cloud_summary">Download your games from a Google Drive folder</string>
-    <string name="cloud_help">Put your games in a Google Drive folder and share it as "Anyone with the link". Paste the folder link here once. Every time you open this screen, new games are downloaded and added to your library.</string>
+    <string name="cloud_help">Put your games in a Google Drive folder and share it as \"Anyone with the link\". Paste the folder link here once. Every time you open this screen, new games are downloaded and added to your library.</string>
     <string name="cloud_link_hint">Google Drive folder link</string>
     <string name="cloud_sync_now">Save and sync</string>
     <string name="cloud_bad_link">This does not look like a Google Drive folder link.</string>
-    <string name="cloud_cannot_open">Could not open the folder. Check the internet and that the folder is shared as "Anyone with the link".</string>
+    <string name="cloud_cannot_open">Could not open the folder. Check the internet and that the folder is shared as \"Anyone with the link\".</string>
     <string name="cloud_up_to_date">All %1$d games are already on this device.</string>
     <string name="cloud_downloading">Downloading %1$d of %2$d\n%3$s</string>
     <string name="cloud_done">Done. %1$d new games added.</string>

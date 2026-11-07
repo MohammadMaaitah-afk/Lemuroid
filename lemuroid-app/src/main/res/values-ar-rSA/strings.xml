@@ -222,11 +222,11 @@
     <string name="cloud_short">ألعاب الكلاود</string>
     <string name="cloud_title">ألعاب من Google Drive</string>
     <string name="cloud_summary">نزّل ألعابك من مجلد على Google Drive</string>
-    <string name="cloud_help">حط ألعابك بمجلد على Google Drive، وشاركه بخيار "أي شخص لديه الرابط". الصق رابط المجلد هون مرة وحدة بس. وكل ما تفتح هالشاشة، الألعاب الجديدة بتنزل لحالها وبتنضاف للمكتبة.</string>
+    <string name="cloud_help">حط ألعابك بمجلد على Google Drive، وشاركه بخيار \"أي شخص لديه الرابط\". الصق رابط المجلد هون مرة وحدة بس. وكل ما تفتح هالشاشة، الألعاب الجديدة بتنزل لحالها وبتنضاف للمكتبة.</string>
     <string name="cloud_link_hint">رابط مجلد Google Drive</string>
     <string name="cloud_sync_now">احفظ وزامن</string>
     <string name="cloud_bad_link">هاد الرابط مش رابط مجلد Google Drive.</string>
-    <string name="cloud_cannot_open">ما قدرت أفتح المجلد. تأكد من الإنترنت، وإنه المجلد مشارك بخيار "أي شخص لديه الرابط".</string>
+    <string name="cloud_cannot_open">ما قدرت أفتح المجلد. تأكد من الإنترنت، وإنه المجلد مشارك بخيار \"أي شخص لديه الرابط\".</string>
     <string name="cloud_up_to_date">كل الألعاب (%1$d) موجودة أصلا على الجهاز.</string>
     <string name="cloud_downloading">عم ننزل %1$d من %2$d\n%3$s</string>
     <string name="cloud_done">خلصنا. انضافت %1$d لعبة جديدة.</string>
