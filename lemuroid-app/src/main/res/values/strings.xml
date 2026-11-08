@@ -295,4 +295,10 @@
     <string name="cloud_downloading">Downloading %1$d of %2$d\n%3$s</string>
     <string name="cloud_done">Done. %1$d new games added.</string>
     <string name="cloud_done_with_errors">%1$d games added, %2$d could not be downloaded. Try again later.</string>
+    <string name="cheats_title">Cheats</string>
+    <string name="cheats_done">Back to game</string>
+    <string name="cheats_refresh">Refresh list</string>
+    <string name="cheats_loading">Looking for cheats…</string>
+    <string name="cheats_none">No cheats found for this game. Check the internet connection, or this game may not have cheats in the database.</string>
+    <string name="cheats_hint">Tick the cheats you want, then go back to the game.</string>
 </resources>

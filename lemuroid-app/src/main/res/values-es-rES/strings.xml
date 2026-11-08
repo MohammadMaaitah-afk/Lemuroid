@@ -233,4 +233,10 @@
     <string name="cloud_downloading">Descargando %1$d de %2$d\n%3$s</string>
     <string name="cloud_done">Listo. Se añadieron %1$d juegos nuevos.</string>
     <string name="cloud_done_with_errors">Se añadieron %1$d juegos, %2$d no se pudieron descargar. Inténtalo más tarde.</string>
+    <string name="cheats_title">Trucos</string>
+    <string name="cheats_done">Volver al juego</string>
+    <string name="cheats_refresh">Actualizar lista</string>
+    <string name="cheats_loading">Buscando trucos…</string>
+    <string name="cheats_none">No se encontraron trucos para este juego. Revisa la conexión a internet, o puede que este juego no tenga trucos en la base de datos.</string>
+    <string name="cheats_hint">Marca los trucos que quieras y vuelve al juego.</string>
 </resources>

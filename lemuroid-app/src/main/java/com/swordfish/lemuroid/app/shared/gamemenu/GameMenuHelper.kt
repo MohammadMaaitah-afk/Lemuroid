@@ -161,6 +161,14 @@ object GameMenuHelper {
                 setResultAndFinish(activity, resultIntent)
                 true
             }
+            "pref_game_cheats" -> {
+                val resultIntent =
+                    Intent().apply {
+                        putExtra(GameMenuContract.RESULT_OPEN_CHEATS, true)
+                    }
+                setResultAndFinish(activity, resultIntent)
+                true
+            }
             "pref_game_reset" -> {
                 val resultIntent =
                     Intent().apply {

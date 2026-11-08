@@ -55,6 +55,19 @@ fun GameMenuHomeScreen(
         }
 
         LemuroidSettingsMenuLink(
+            title = { Text(text = stringResource(id = R.string.cheats_title)) },
+            icon = {
+                Icon(
+                    painterResource(R.drawable.ic_menu_restart),
+                    contentDescription = stringResource(id = R.string.cheats_title),
+                )
+            },
+            onClick = {
+                onResult { putExtra(GameMenuContract.RESULT_OPEN_CHEATS, true) }
+            },
+        )
+
+        LemuroidSettingsMenuLink(
             title = { Text(text = stringResource(id = R.string.game_menu_quit)) },
             icon = {
                 Icon(

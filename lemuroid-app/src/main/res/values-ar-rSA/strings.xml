@@ -231,4 +231,10 @@
     <string name="cloud_downloading">عم ننزل %1$d من %2$d\n%3$s</string>
     <string name="cloud_done">خلصنا. انضافت %1$d لعبة جديدة.</string>
     <string name="cloud_done_with_errors">انضافت %1$d لعبة، و %2$d ما نزلت. جرب كمان شوي.</string>
+    <string name="cheats_title">الغشات (Cheats)</string>
+    <string name="cheats_done">ارجع للعبة</string>
+    <string name="cheats_refresh">حدّث القائمة</string>
+    <string name="cheats_loading">عم ندور على غشات…</string>
+    <string name="cheats_none">ما لقينا غشات لهاي اللعبة. تأكد من الإنترنت، أو ممكن اللعبة ما إلها غشات بقاعدة البيانات.</string>
+    <string name="cheats_hint">علّم على الغشات اللي بدك ياها، وبعدين ارجع للعبة.</string>
 </resources>

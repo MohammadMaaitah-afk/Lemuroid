@@ -44,6 +44,7 @@ import dagger.Lazy
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -113,6 +114,14 @@ abstract class BaseGameActivity : ImmersiveActivity() {
                 coreVariablesManager,
                 rumbleManager,
             )
+        }
+
+        // Turn on the cheats chosen for this game as soon as it is running
+        lifecycleScope.launch {
+            runCatching {
+                viewModel.getGameState().first { it is com.swordfish.lemuroid.app.shared.game.viewmodel.GameViewModelRetroGameView.GameState.Ready }
+                applyCheats()
+            }
         }
 
         baseGameScreenViewModel = viewModel
@@ -363,7 +372,19 @@ abstract class BaseGameActivity : ImmersiveActivity() {
         data: Intent?,
     ) {
         super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CHEATS_REQUEST) {
+            applyCheats()
+            return
+        }
         if (requestCode == DIALOG_REQUEST) {
+            if (data?.getBooleanExtra(GameMenuContract.RESULT_OPEN_CHEATS, false) == true) {
+                startActivityForResult(
+                    Intent(this, com.swordfish.lemuroid.app.shared.cheats.CheatsActivity::class.java)
+                        .putExtra(com.swordfish.lemuroid.app.shared.cheats.CheatsActivity.EXTRA_GAME, game),
+                    CHEATS_REQUEST,
+                )
+                return
+            }
             Timber.i("Game menu dialog response: ${data?.extras.dump()}")
             if (data?.getBooleanExtra(GameMenuContract.RESULT_RESET, false) == true) {
                 GlobalScope.launch {
@@ -416,8 +437,20 @@ abstract class BaseGameActivity : ImmersiveActivity() {
         }
     }
 
+    private fun applyCheats() {
+        val view = baseGameScreenViewModel.retroGameView.retroGameView ?: return
+        val appContext = applicationContext
+        val currentGame = game
+        GlobalScope.launch(kotlinx.coroutines.Dispatchers.IO) {
+            runCatching {
+                com.swordfish.lemuroid.app.shared.cheats.CheatsManager.apply(appContext, currentGame, view)
+            }
+        }
+    }
+
     companion object {
         const val DIALOG_REQUEST = 100
+        const val CHEATS_REQUEST = 101
 
         private const val EXTRA_GAME = "GAME"
         private const val EXTRA_LOAD_SAVE = "LOAD_SAVE"
